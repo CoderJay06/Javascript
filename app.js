@@ -41,7 +41,26 @@
        )
    console.log(dino)
     // Create Human Object
-      
+    class Human {
+        constructor(
+            name,
+            height,
+            weight,
+            diet
+        ) {
+            this.name = name;
+            this.height = height;
+            this.weight = weight;
+            this.diet = diet;
+        }
+    }
+    const human = new Human(
+        "Joe",
+        120,
+        220,
+        "Carnivore"
+    )
+    console.log(human);
     // Use IIFE to get human data from form
 
 
