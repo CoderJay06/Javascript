@@ -44,25 +44,50 @@
     class Human {
         constructor(
             name,
-            height,
+            feet,
+            inches,
             weight,
             diet
         ) {
             this.name = name;
-            this.height = height;
+            this.feet = feet;
+            this.inches = inches;
             this.weight = weight;
             this.diet = diet;
         }
     }
     const human = new Human(
         "Joe",
-        120,
+        6,
+        2,
         220,
         "Carnivore"
     )
     console.log(human);
     // Use IIFE to get human data from form
+    // create new human object with that data 
+    // save it to a variable
 
+    function getHumanInput() {
+        console.log(event.target)
+        return (function() {
+            let name = document.getElementById("name").innerHTML;
+            let feet = document.getElementById("feet").innerHTML;
+            let inches = document.getElementById("inches").innerHTML;
+            let weight = document.getElementById("weight").innerHTML;
+            let dietList = document.getElementById("diet");
+            let diet = dietList.options[dietList.selectedIndex].value;
+            console.log(diet)
+        }())
+    }
+
+    function submitCompareForm() {
+        // listen for submit event on form 
+        const compareForm = document.querySelector(".form-container");
+        compareForm.addEventListener("click", getHumanInput);
+    }
+
+    submitCompareForm();
 
     // Create Dino Compare Method 1
     // NOTE: Weight in JSON file is in lbs, height in inches. 
