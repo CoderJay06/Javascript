@@ -65,6 +65,7 @@
     )
     console.log(human);
     // Use IIFE to get human data from form
+<<<<<<< HEAD
     function getHumanInput() {
         console.log(event.target)
         return (function() {
@@ -99,6 +100,24 @@
         )
     }
 
+=======
+    // create new human object with that data 
+    // save it to a variable
+
+    function getHumanInput() {
+        console.log(event.target)
+        return (function() {
+            let name = document.getElementById("name").innerHTML;
+            let feet = document.getElementById("feet").innerHTML;
+            let inches = document.getElementById("inches").innerHTML;
+            let weight = document.getElementById("weight").innerHTML;
+            let dietList = document.getElementById("diet");
+            let diet = dietList.options[dietList.selectedIndex].value;
+            console.log(diet)
+        }())
+    }
+
+>>>>>>> 89082e6aa0a2e03efb1ef589b2c65d791309d3d8
     function submitCompareForm() {
         // listen for submit event on form 
         const compareForm = document.querySelector(".form-container");
