@@ -102,6 +102,7 @@
             console.log(diet)
         }())
     }
+    
     function submitCompareForm() {
         // listen for submit event on form 
         const compareForm = document.querySelector(".form-container");
