@@ -11,60 +11,48 @@
          . fact :str
     */
     class Dino {
-       constructor(
-          species,
-          weight,
-          height,
-          diet,
-          where,
-          when,
-          fact) {
-             this.species = species;
-             this.weight = weight;
-             this.height = height;
-             this.diet = diet;
-             this.where = where;
-             this.when= when;
-             this.fact = fact;
+       constructor(dinoObj) {
+          this.species = dinoObj.species;
+          this.weight = dinoObj.weight;
+          this.height = dinoObj.height;
+          this.diet = dinoObj.diet;
+          this.where = dinoObj.where;
+          this.when= dinoObj.when;
+          this.fact = dinoObj.fact;
        }
     }
 
     // Create Dino Objects
-    const dino = new Dino(
-       "Pteranodon",
-       44,
-       20,
-       "carnivor",
-       "North America",
-       "Late Cretaceous",
-       "Actually a flying reptile, the Pteranodon is not a dinosaur."
-       )
+    const dino = new Dino({
+       species: "Pteranodon",
+       weight: 44,
+       height: 20,
+       diet: "carnivor",
+       where: "North America",
+       when: "Late Cretaceous",
+       fact: "Actually a flying reptile, the Pteranodon is not a dinosaur."
+    })
    console.log(dino)
     // Create Human Object
     class Human {
-        constructor(
-            name,
-            feet,
-            inches,
-            weight,
-            diet
-        ) {
-            this.name = name;
-            this.feet = feet;
-            this.inches = inches;
-            this.weight = weight;
-            this.diet = diet;
+        constructor(humanObj) {
+            this.name = humanObj.name;
+            this.feet = humanObj.feet;
+            this.inches = humanObj.inches;
+            this.weight = humanObj.weight;
+            this.diet = humanObj.diet;
         }
     }
-    const human = new Human(
-        "Joe",
-        6,
-        2,
-        220,
-        "Carnivore"
-    )
+    const human = new Human({
+        name: "Joe",
+        feet: 6,
+        inches: 2,
+        weight: 220,
+        diet: "Carnivore"
+    })
     console.log(human);
     // Use IIFE to get human data from form
+
     function getHumanInput() {
         console.log(event.target)
         return (function() {
@@ -89,7 +77,7 @@
 
             // create new human instance with form data 
             const h = createHuman(humanInput);
-             console.log(h);
+            console.log(h);
         }())
     }
 
@@ -99,6 +87,21 @@
         )
     }
 
+    // create new human object with that data 
+    // save it to a variable
+
+    function getHumanInput() {
+        console.log(event.target)
+        return (function() {
+            let name = document.getElementById("name").innerHTML;
+            let feet = document.getElementById("feet").innerHTML;
+            let inches = document.getElementById("inches").innerHTML;
+            let weight = document.getElementById("weight").innerHTML;
+            let dietList = document.getElementById("diet");
+            let diet = dietList.options[dietList.selectedIndex].value;
+            console.log(diet)
+        }())
+    }
     function submitCompareForm() {
         // listen for submit event on form 
         const compareForm = document.querySelector(".form-container");
